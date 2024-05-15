@@ -1,0 +1,31 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col">
+      <table class="table">
+        <thead>
+          <tr class="text-center">
+            <th scope="col" colspan="3" style="background-color: #09f; color: #fff;">Pacientes</th>
+          </tr>
+          <tr>
+            <th>Nombre</th>
+            <th>Edad</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let paciente of pacientes" (click)="onClick(paciente)" style="cursor: pointer;">
+            <td>{{paciente.nombre}}</td>
+            <td>{{paciente.edad}}</td>
+          </tr>
+        </tbody>
+      </table>
+      <span>Hay un total de <b>{{menoresDeEdad}}</b> pacientes menores de edad</span>
+    </div>
+
+    <div class="col">
+      <div *ngIf="selected">
+        <app-paciente-detail [pacienteDetail]="pacienteSelected"></app-paciente-detail>
+      </div>
+    </div>
+
+  </div>
+</div>
